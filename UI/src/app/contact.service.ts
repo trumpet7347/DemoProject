@@ -12,7 +12,7 @@ const httpOptions = {
 };
 
 // UPDATE THIS TO THE API URL FROM THE POWERSHELL WINDOW
-const baseUrl = 'https://localhost:44359';
+const baseUrl = 'https://localhost:5001';
 
 @Injectable({
   providedIn: 'root'
