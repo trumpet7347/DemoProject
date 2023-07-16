@@ -1,0 +1,67 @@
+<form form (ngSubmit)="onSubmit()" #contactForm="ngForm" ngNativeValidate>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="firstName">First Name</label>
+            <input [(ngModel)]="contact.firstName" type="text" maxlength="20" class="form-control" name="firstName"
+                required />
+        </div>
+        <div class="form-group col-md-6">
+            <label for="lastName">Last Name</label>
+            <input [(ngModel)]="contact.lastName" type="text" maxlength="20" class="form-control" required name="lastName">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input [(ngModel)]="contact.email" type="email" maxlength="100" class="form-control" required name="email">
+    </div>
+    <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input [(ngModel)]="contact.phoneNumber" type="text" maxlength="10" class="form-control" required name="phoneNumber">
+    </div>
+    <div class="form-group">
+        <label for="street">Address</label>
+        <input [(ngModel)]="contact.street" type="text" maxlength="100" class="form-control" required name="street">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputCity">City</label>
+            <input [(ngModel)]="contact.city" type="text" maxlength="50" class="form-control" name="city">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputState">State</label>
+            <select [(ngModel)]="contact.state.stateId" required name="state" class="form-control">
+                <option *ngFor="let state of states" [ngValue]="state.stateId">{{state.name}}</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Zip</label>
+            <input [(ngModel)]="contact.zip" type="text" maxlength="20" class="form-control" name="zip">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="contactFreq">Contact Frequency</label>
+            <select [(ngModel)]="contact.contactFrequency.contactFrequencyId" required class="form-control"
+                name="contactFreq">
+                <option *ngFor="let freq of contactFreq" [ngValue]="freq.contactFrequencyId">{{freq.description}}
+                </option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="contactFreq">Contact Method</label>
+            <select [(ngModel)]="contact.contactMethod.contactMethodId" required class="form-control"
+                name="contactFreq">
+                <option *ngFor="let meth of contactMethod" [ngValue]="meth.contactMethodId">{{meth.description}}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <button class="btn btn-primary" type="submit">Update</button>
+        </div>
+        <div class="col-md-6">
+            <a class="btn btn-danger float-right" (click)="delete()" >Delete</a>
+        </div>
+    </div>
+</form>
